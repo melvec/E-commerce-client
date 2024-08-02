@@ -1992,7 +1992,7 @@ possible-typed-array-names@^1.0.0:
   resolved "https://registry.yarnpkg.com/possible-typed-array-names/-/possible-typed-array-names-1.0.0.tgz#89bb63c6fada2c3e90adc4a647beeeb39cc7bf8f"
   integrity sha512-d7Uw+eZoloe0EHDIYoe+bQ5WXnGMOpmiZFTuMWCwpjzzkL2nTjcKiAk4hh8TjnGye2TwWOk3UXucZ+3rbmBa8Q==
 
-postcss@^8.4.39:
+postcss@^8.4.14, postcss@^8.4.39:
   version "8.4.40"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-8.4.40.tgz#eb81f2a4dd7668ed869a6db25999e02e9ad909d8"
   integrity sha512-YF2kKIUzAofPMpfH6hOi2cGnv/HrUlfucspc7pDyvv7kGdqXrfj8SCl/t8owkEgKEuu8ZcRjSOxFxVLqwChZ2Q==
@@ -2394,6 +2394,14 @@ to-fast-properties@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-2.0.0.tgz#dc5e698cbd079265bc73e0377681a4e4e83f616e"
   integrity sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==
+
+toastify-react@^4.3.1:
+  version "4.3.1"
+  resolved "https://registry.yarnpkg.com/toastify-react/-/toastify-react-4.3.1.tgz#6cd9258a5cd0dfb05b5be54da2093b0334ea8872"
+  integrity sha512-BYjUdJE2BmeC1RN5EaQIHbcds3vN0i+ViNHMdItAZWfZeQLVoaMNsGjyLFeTCsPHup/1OaQXnrr9ZPJ+bKDe3Q==
+  dependencies:
+    postcss "^8.4.14"
+    tslib "^2.4.0"
 
 toastify@^2.0.1:
   version "2.0.1"

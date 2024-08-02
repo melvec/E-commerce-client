@@ -1,6 +1,7 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import AuthPage from "./pages/AuthPage";
-import "react-toastify/dist/ReactToastify.css";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (
