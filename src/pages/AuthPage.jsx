@@ -16,7 +16,7 @@ const AuthPage = () => {
       fluid
       className="d-flex align-items-center justify-content-center min-vh-100 bg-light"
     >
-      <Card className="d-flex flex-column m-6 bg-white shadow-lg rounded-2xl">
+      <Card className="d-flex flex-column m-6 bg-white shadow-lg rounded-2xl login-card-width">
         <Row className="no-gutters">
           <Col md={6} className="d-flex flex-column justify-content-center p-4">
             <Card.Body>
