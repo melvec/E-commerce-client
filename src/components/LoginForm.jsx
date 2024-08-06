@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { loginUser } from "../axios/usersAxios";
 import useForm from "../hooks/useForm";
 import CustomInput from "./CusotmInput";
 
@@ -13,16 +14,19 @@ const LoginForm = ({ toggleAuthMode }) => {
   const { formData, handleOnChange } = useForm(initialFormData);
   const { email, password } = formData;
 
-  const handleOnSubmit = async () => {
+  const handleOnSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    //const result = await loginUser(formData);
-    //console.log(result);
+
+    const result = await loginUser(formData);
+    console.log(result);
   };
 
   return (
     <Form onSubmit={handleOnSubmit}>
       <Container className="py-4">
+        <Row>
+          <span>Login</span>
+        </Row>
         <Row>
           <Col>
             <CustomInput
@@ -38,7 +42,7 @@ const LoginForm = ({ toggleAuthMode }) => {
             />
           </Col>
         </Row>
-        <Row className="py-4">
+        <Row className="py-2">
           <Col>
             <CustomInput
               label="Password"
@@ -53,7 +57,7 @@ const LoginForm = ({ toggleAuthMode }) => {
             />
           </Col>
         </Row>
-        <Row className="d-flex justify-content-end py-2">
+        <Row className=" py-2">
           <Col className="text-right">
             <span className="font-weight-bold text-md">Forgot Password</span>
           </Col>

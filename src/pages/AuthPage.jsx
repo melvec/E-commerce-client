@@ -20,9 +20,6 @@ const AuthPage = () => {
         <Row className="no-gutters">
           <Col md={6} className="d-flex flex-column justify-content-center p-4">
             <Card.Body>
-              <Card.Title as="h2" className="mb-3">
-                Welcome to the Biggest Deals
-              </Card.Title>
               <Card.Subtitle className="mb-4 text-center text-success font-weight-bold">
                 E-COMMERCE WEBSITE
               </Card.Subtitle>
@@ -40,7 +37,7 @@ const AuthPage = () => {
             <Card.Img
               src={beachlandscape}
               alt="img"
-              className="w-100 h-auto rounded-end"
+              className="w-100 h-100 rounded-end object-fit-cover"
             />
           </Col>
         </Row>

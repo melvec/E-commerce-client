@@ -1,0 +1,26 @@
+.gradient-landingpage {
+    background: rgb(145,129,244);
+    background: radial-gradient(circle, rgba(145,129,244,1) 0%, rgba(255,255,255,1) 100%);
+    }
+  
+  .navbar{
+    background: #E3DBFA
+  }
+  .semi-rectangle {
+    width: 100%;
+    height: 50px; /* Adjust the height as needed */
+    background-color: #A0AEFF; /* Adjust the background color as needed */
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin-top: 70px; /* Adjust the margin as needed */
+  }
+  
+  .landing-page-image {
+    width: 800px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .landing-page-container{
+    max-width: 75%; 
+    margin: 0 auto;
+  }
