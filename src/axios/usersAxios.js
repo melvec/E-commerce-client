@@ -20,3 +20,22 @@ export const createUser = (userObj) => {
     data: userObj,
   });
 };
+
+// Get user | private
+export const getUser = () => {
+  return axiosApiCall({
+    method: "get",
+    url: USER_API_URL,
+    isPrivate: true,
+  });
+};
+
+// Get new access token suing refresh token
+export const getNewAccessJwt = () => {
+  return axiosApiCall({
+    method: "get",
+    url: `${USER_API_URL}/accessjwt`,
+    isPrivate: true,
+    useRefreshToken: true,
+  });
+};

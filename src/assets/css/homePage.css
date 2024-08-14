@@ -1,26 +1,66 @@
 .gradient-landingpage {
-    background: rgb(145,129,244);
-    background: radial-gradient(circle, rgba(145,129,244,1) 0%, rgba(255,255,255,1) 100%);
-    }
-  
-  .navbar{
-    background: #E3DBFA
+  background: rgb(145,129,244);
+  background: radial-gradient(circle, rgb(207, 239, 214) 0%, rgba(255,255,255,1) 100%);
   }
-  .semi-rectangle {
-    width: 100%;
-    height: 50px; /* Adjust the height as needed */
-    background-color: #A0AEFF; /* Adjust the background color as needed */
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
-    margin-top: 70px; /* Adjust the margin as needed */
-  }
-  
-  .landing-page-image {
-    width: 800px; /* Adjust the width as needed */
-    height: auto; /* Maintain aspect ratio */
-  }
-  
-  .landing-page-container{
-    max-width: 75%; 
-    margin: 0 auto;
-  }
+
+.navbar{
+  background: #EAEDFF
+}
+.semi-rectangle-left {
+  width: 100%;
+  height: 83%; 
+  background-color: #A0AEFF; 
+  border-top-left-radius: 25px;
+  margin-top: 70px; 
+}
+.semi-rectangle-right {
+  width: 100%;
+  height: 83%; 
+  background-color: #A0AEFF; 
+  border-top-right-radius: 25px;
+  margin-top: 70px; 
+  padding-bottom: 0;
+}
+
+.landing-page-image {
+  width: 700px; 
+  height: auto; 
+}
+
+.landing-page-container{
+  max-width: 70%; 
+  margin: 0 auto;
+}
+
+.contact-form{
+  background-color: white;
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  width: 800px;
+  max-width: 100%;
+
+  margin-top: -20px; 
+
+}
+
+.header{
+  padding-left: 10px;
+}
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #f8f9fa; /* Optional: you can change the background color as needed */
+  width: 100%; 
+}
+
+.contact-form-image{
+  background-color: #E3DBFA;
+  border-radius: 25px;
+}
+
+.contact-form-title{
+  color: #6B56F0;
+  font-size: 40px;
+  font-weight: bold;
+  padding-top: -10px;
+}

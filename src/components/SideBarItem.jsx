@@ -8,7 +8,7 @@ const SidebarItem = (props) => {
   return (
     <Link className="text-decoration-none p-1 me-atuo" to={path}>
       <Button
-        variant={activeItem === label ? "info" : "outline-info"}
+        variant={activeItem === label ? "success" : "outline-success"}
         className="fw-bold text-dark w-100 text-start"
         onClick={() => setActiveItem(label)}
       >

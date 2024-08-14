@@ -3,9 +3,10 @@ import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
 const AdminPrivateRoutes = ({ children }) => {
-  return children;
   const { user } = useSelector((state) => state.user);
-
+  console.log("i am in layout");
+  console.log(user);
+  return children;
   // if user is not logged in
   if (!user?._id) {
     return <Navigate to="/" />;

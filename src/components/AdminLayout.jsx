@@ -22,10 +22,7 @@ const AdminLayout = () => {
     <Container fluid>
       <Row>
         {/* Sidebar */}
-        <Col
-          xs={3}
-          className="vh-100 bg-info-subtle shadow p-2 position-fixed top-0 left-0"
-        >
+        <Col xs={3} className="vh-100  shadow p-2 position-fixed top-0 left-0">
           <Stack className="h-100">
             <Card className="text-center fw-bold">
               <Card.Header>

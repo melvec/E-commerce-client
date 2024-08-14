@@ -7,6 +7,9 @@ import HomePage from "./pages/HomePage";
 import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./components/AdminLayout";
 import AdminPrivateRoutes from "./components/AdminPrivateRoutes";
+import CategoriesPage from "./pages/category/CategoriesPage";
+import CategoryForm from "./components/CategoryForm/CategoryForm";
+import NewCategoryPage from "./pages/category/NewCategory";
 
 function App() {
   return (
@@ -24,7 +27,10 @@ function App() {
               <AdminLayout />
             </AdminPrivateRoutes>
           }
-        ></Route>
+        >
+          <Route path="categories" element={<CategoriesPage />} />
+          <Route path="new-category" element={<NewCategoryPage />} />
+        </Route>
       </Routes>
 
       <ToastContainer />

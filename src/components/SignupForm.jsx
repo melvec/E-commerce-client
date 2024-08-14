@@ -29,7 +29,7 @@ const SignupForm = ({ toggleAuthMode }) => {
   const handleOnSubmit = async (e) => {
     e.preventDefault();
     const isValidPassword = formValidation(formData);
-    console.log(isValidPassword);
+
     if (!isValidPassword) {
       return toast.error("Password and confirm password don't match");
     }
@@ -41,7 +41,13 @@ const SignupForm = ({ toggleAuthMode }) => {
       phone,
       password,
     });
-    console.log(result);
+
+    if (result?.status === "error") {
+      return toast.error(result.message || "Cannot create user!");
+    }
+
+    setFormData(initialFormData);
+    toast.success(result.message || " Account created");
   };
 
   return (
@@ -71,7 +77,7 @@ const SignupForm = ({ toggleAuthMode }) => {
 
         <Row className="py-2">
           <Col>
-            <CustomButton textButton="Signup" />
+            <CustomButton buttonName="Signup" />
           </Col>
         </Row>
         <Row className="text-center text-muted py-2">

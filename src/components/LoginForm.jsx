@@ -1,9 +1,12 @@
-import React from "react";
-
+import React, { useEffect } from "react";
+import { toast } from "react-toastify";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import { loginUser } from "../axios/usersAxios";
 import useForm from "../hooks/useForm";
 import CustomInput from "./CusotmInput";
+import { useDispatch, useSelector } from "react-redux";
+import { getUserAction } from "../redux/user/userActions";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const initialFormData = {
   email: "",
@@ -13,13 +16,44 @@ const initialFormData = {
 const LoginForm = ({ toggleAuthMode }) => {
   const { formData, handleOnChange } = useForm(initialFormData);
   const { email, password } = formData;
-
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleOnSubmit = async (e) => {
     e.preventDefault();
 
     const result = await loginUser(formData);
-    console.log(result);
+    if (result?.status === "error") {
+      return toast.error(result.message);
+    }
+    console.log("result" + result.data.accessJWT);
+    // If success, we store the accessJWT and refresh JWT in session storage and local storage respectively
+    sessionStorage.setItem("accessJWT", result.data.accessJWT);
+    localStorage.setItem("refreshJWT", result.data.refreshJWT);
+
+    // once tokens are stored, dispatch action to get user
+    dispatch(getUserAction());
   };
+  // Logic to handle what should happen if a user is logged in
+  const { user } = useSelector((state) => state.user);
+  useEffect(() => {
+    // if user exists [logged in], navigate to admin homepage
+    if (user?._id) {
+      navigate("/admin");
+    }
+
+    // if no tokens, keep them in login page
+    if (
+      !sessionStorage.getItem("accessJWT") &&
+      !localStorage.getItem("refreshJWT")
+    ) {
+      return;
+    }
+
+    // // if not try auto login
+    // if (!user?._id) {
+    //   dispatch(autoLoginAction());
+    // }
+  }, [user?._id, navigate, dispatch]);
 
   return (
     <Form onSubmit={handleOnSubmit}>
