@@ -3,6 +3,7 @@ import {
   createCategory,
   getCategories,
   updateCategory,
+  deleteCategory,
 } from "../../axios/categoryAxios";
 import { setCategories, setIsLoading } from "./categorySlice";
 
@@ -41,6 +42,16 @@ export const updateCategoryAction = (categoryObj) => async (dispatch) => {
   const result = await updateCategory(categoryObj);
   dispatch(setIsLoading(false));
   if (result?.status === "error") {
+    return toast.error(result.message);
+  }
+  toast.success(result.message);
+  dispatch(getCategoriesAction());
+};
+
+//DELETE CATEGORY ACTION
+export const deleteCategoryAction = (categoryObj) => async (dispatch) => {
+  const result = await deleteCategory(categoryObj);
+  if (result.status === "error") {
     return toast.error(result.message);
   }
   toast.success(result.message);

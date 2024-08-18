@@ -1,10 +1,21 @@
 /* eslint-disable react/prop-types */
 import { Button, Card, Image, Stack } from "react-bootstrap";
 import { BsPencil, BsTrash } from "react-icons/bs";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import useForm from "../hooks/useForm";
+import { deleteCategoryAction } from "../redux/category/categoryActions";
 
 const CategoryCard = (props) => {
   const { category } = props;
+  const { formData, handleOnChange } = useForm(category);
+
+  const dispatch = useDispatch();
+
+  const deleteCategory = (e) => {
+    e.preventDefault();
+    dispatch(deleteCategoryAction(formData));
+  };
 
   return (
     <Card className="d-flex flex-row align-items-center rounded shadow">
@@ -30,7 +41,7 @@ const CategoryCard = (props) => {
                 <BsPencil />
               </Button>
             </Link>
-            <Button variant="outline-danger">
+            <Button onClick={deleteCategory} variant="outline-danger">
               <BsTrash />
             </Button>
           </Stack>

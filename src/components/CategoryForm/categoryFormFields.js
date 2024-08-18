@@ -1,9 +1,9 @@
 export const categoryFormFields = [
   {
-    label: "Category Thumbnail",
+    label: "Category Image URL",
     name: "thumbnail",
-    type: "file",
-    placeholder: "Choose Image",
+    type: "text",
+    placeholder: "Insert image URL",
   },
   {
     label: "Category Title",

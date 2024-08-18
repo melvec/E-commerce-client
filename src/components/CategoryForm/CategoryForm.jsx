@@ -31,21 +31,21 @@ const CategoryForm = (props) => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-
+    console.log(formData);
     // PROCESS FORM DATA TO SEND IMAGE FILE AS WELL IN XML
-    let formObject = new FormData();
+    // let formObject = new FormData();
 
-    Object.entries(formData).forEach(([key, value]) =>
-      formObject.append(key, value)
-    );
+    // Object.entries(formData).forEach(([key, value]) =>
+    //   formObject.append(key, value)
+    // );
 
-    // // Call Actions
-    // dispatch(createCategoryAction(formObject))
-    console.log("categoryObj");
-    console.log(formObject);
+    // // // Call Actions
+    // // dispatch(createCategoryAction(formObject))
+    // console.log("categoryObj");
+    // console.log(formObject);
     formData?._id
-      ? dispatch(updateCategoryAction(formObject))
-      : dispatch(createCategoryAction(formObject));
+      ? dispatch(updateCategoryAction(formData))
+      : dispatch(createCategoryAction(formData));
     navigate("/admin/categories");
   };
 

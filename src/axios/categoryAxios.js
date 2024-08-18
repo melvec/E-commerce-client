@@ -35,3 +35,13 @@ export const updateCategory = (categoryObj) => {
     isPrivate: true,
   });
 };
+
+//Private Route | Delete category
+export const deleteCategory = (categoryObj) => {
+  return axiosApiCall({
+    method: "delete",
+    url: CATEGORY_API_URL,
+    data: categoryObj,
+    isPrivate: true,
+  });
+};
