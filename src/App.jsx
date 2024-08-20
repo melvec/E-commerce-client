@@ -8,8 +8,10 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./components/AdminLayout";
 import AdminPrivateRoutes from "./components/AdminPrivateRoutes";
 import CategoriesPage from "./pages/category/CategoriesPage";
-import CategoryForm from "./components/CategoryForm/CategoryForm";
+import ProductsPage from "./pages/product/ProductsPage";
 import NewCategoryPage from "./pages/category/NewCategory";
+import EditCategoryPage from "./pages/category/EditCategoryPage";
+import NewProductPage from "./pages/product/NewProductPage";
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
         >
           <Route path="categories" element={<CategoriesPage />} />
           <Route path="new-category" element={<NewCategoryPage />} />
+          <Route path="edit-category/:id" element={<EditCategoryPage />} />
+          <Route path="products" element={<ProductsPage />} />
+          <Route path="new-product" element={<NewProductPage />} />
         </Route>
       </Routes>
 

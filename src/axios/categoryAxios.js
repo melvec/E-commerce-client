@@ -7,11 +7,10 @@ const CATEGORY_API_URL = `${
 }/api/category`;
 
 //Public Route | Get categories
-export const getCategories = (categoryObj) => {
+export const getCategories = () => {
   return axiosApiCall({
     method: "get",
     url: CATEGORY_API_URL,
-    data: categoryObj,
     isPrivate: true,
   });
 };

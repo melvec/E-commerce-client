@@ -3,8 +3,8 @@ import { Button, Card, Image, Stack } from "react-bootstrap";
 import { BsPencil, BsTrash } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useForm from "../hooks/useForm";
-import { deleteCategoryAction } from "../redux/category/categoryActions";
+import useForm from "../../hooks/useForm";
+import { deleteCategoryAction } from "../../redux/category/categoryActions";
 
 const CategoryCard = (props) => {
   const { category } = props;
@@ -36,6 +36,7 @@ const CategoryCard = (props) => {
           <Card.Title>{category.title}</Card.Title>
 
           <Stack direction="horizontal" gap={2}>
+            {/* <Link to={`/admin/edit-category/${category._id}`}> */}
             <Link to={`/admin/edit-category/${category._id}`}>
               <Button variant="outline-success">
                 <BsPencil />

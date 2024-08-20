@@ -1,5 +1,5 @@
 import { Alert } from "react-bootstrap";
-import CategoryForm from "../../components/CategoryForm/CategoryForm";
+import CategoryForm from "../../components/Category/CategoryForm";
 
 const initialFormData = {
   thumbnail: "",
