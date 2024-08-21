@@ -2,23 +2,37 @@
 import React from "react";
 
 import "../assets/css/homePage.css";
-import { Button, Container, Image, Nav, Navbar } from "react-bootstrap";
+
 import CustomButton from "./CustomButton";
+import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 
 const Header = () => {
   return (
-    <Navbar expand="sm" className="navbar " data-bs-theme="light">
-      <Container className="p-2 header">
-        <Navbar.Brand href="#home">
-          <Image src={""} width="" height=""></Image>
-        </Navbar.Brand>
-        <Nav className="ms-auto px-3">
-          <Nav.Link href="#about">About</Nav.Link>
-          <Nav.Link href="#contatc">Contact</Nav.Link>
-        </Nav>
+    <Navbar bg="light" expand="lg">
+      <Container>
+        <Navbar.Brand href="#home">Melissa Gallery</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link href="#home" className="mx-3">
+              Gallery
+            </Nav.Link>
+            <Nav.Link href="#home" className="mx-3">
+              Categories
+            </Nav.Link>
 
-        <CustomButton buttonName="Login" />
-        <CustomButton buttonName="Register" />
+            <Nav.Link href="#link" className="mx-3">
+              Contact
+            </Nav.Link>
+          </Nav>
+          <Button
+            className="ms-2"
+            type="submit"
+            style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
+          >
+            Login
+          </Button>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

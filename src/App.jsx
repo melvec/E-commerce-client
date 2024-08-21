@@ -8,11 +8,12 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminLayout from "./components/AdminLayout";
 import AdminPrivateRoutes from "./components/AdminPrivateRoutes";
 import CategoriesPage from "./pages/category/CategoriesPage";
-import ProductsPage from "./pages/product/ProductsPage";
 import NewCategoryPage from "./pages/category/NewCategory";
 import EditCategoryPage from "./pages/category/EditCategoryPage";
-import NewProductPage from "./pages/product/NewProductPage";
-
+import EditProductPage from "./pages/product/adminProducts/EditProductPage";
+import NewProductPage from "./pages/product/adminProducts/NewProductPage";
+import ProductsPage from "./pages/product/adminProducts/ProductsPage";
+import CustomerProductCardDetails from "./components/Product/CustomerProductCardDetails";
 function App() {
   return (
     <>
@@ -20,6 +21,10 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/signup" element={<SignupForm />} />
+        <Route
+          path="/product-detail/:id"
+          element={<CustomerProductCardDetails />}
+        />
 
         {/* Private Route */}
         <Route
@@ -35,6 +40,7 @@ function App() {
           <Route path="edit-category/:id" element={<EditCategoryPage />} />
           <Route path="products" element={<ProductsPage />} />
           <Route path="new-product" element={<NewProductPage />} />
+          <Route path="edit-product/:id" element={<EditProductPage />} />
         </Route>
       </Routes>
 

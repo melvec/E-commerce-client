@@ -1,22 +1,19 @@
 /* eslint-disable react/prop-types */
 import { Badge, Button, Card, Image, Stack } from "react-bootstrap";
 import { BsImages, BsPencil, BsTrash } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams } from "react-router-dom";
 import useForm from "../../hooks/useForm";
 import { deleteProductAction } from "../../redux/product/productActions";
 import { format } from "date-fns";
 
-const ProductCard = (props) => {
-  const { product } = props;
-  const { formData, handleOnChange } = useForm(product);
-  const dispatch = useDispatch();
+const CustomerProductCardDetails = () => {
+  const { id } = useParams();
 
-  const deleteProduct = (e) => {
-    // dispatch delete action
-    e.preventDefault();
-    dispatch(deleteProductAction(formData));
-  };
+  const { products } = useSelector((state) => state.product);
+  const product = products?.find((product) => product._id === id);
+
+  const { formData, handleOnChange } = useForm(product);
 
   const isActive = product.status === "active";
 
@@ -34,21 +31,10 @@ const ProductCard = (props) => {
         <Stack direction="horizontal" gap={2}>
           <Stack style={{ width: "30%" }}>
             <Card.Title>{product.name}</Card.Title>
-            <Stack direction="horizontal">
-              {isActive ? (
-                <Badge bg="success" className="p-1">
-                  Active
-                </Badge>
-              ) : (
-                <Badge bg="danger" className="p-1">
-                  Inactive
-                </Badge>
-              )}
 
-              <Badge bg="secondary" style={{ width: "fit-content" }}>
-                {product.parentCategory}
-              </Badge>
-            </Stack>
+            <Badge bg="secondary" style={{ width: "fit-content" }}>
+              {product.parentCategory}
+            </Badge>
 
             <Card.Text className="fw-bold">
               Quantity: {product.quantity} | Date:{" "}
@@ -65,19 +51,13 @@ const ProductCard = (props) => {
 
           <Stack direction="horizontal" gap={2}>
             <Link to={`/admin/edit-product/${product._id}`}>
-              <Button variant="outline-success">
-                <BsPencil />
-              </Button>
+              <Button variant="outline-success">Buy</Button>
             </Link>
 
             {/*
             <Link to={`/admin/manage-product-images/${product._id}`}>
               <Button variant="outline-primary"><BsImages/></Button>
             </Link> */}
-
-            <Button variant="outline-danger" onClick={deleteProduct}>
-              <BsTrash />
-            </Button>
           </Stack>
         </Stack>
       </Card.Body>
@@ -85,4 +65,4 @@ const ProductCard = (props) => {
   );
 };
 
-export default ProductCard;
+export default CustomerProductCardDetails;

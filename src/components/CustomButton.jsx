@@ -6,8 +6,6 @@ const CustomButton = (props) => {
   return (
     <Button
       type="submit"
-      className="w-100"
-      variant="success"
       style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
     >
       {buttonName}

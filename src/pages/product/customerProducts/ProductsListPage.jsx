@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { Button, Col, Container, Form, Row, Stack } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import ProductCard from "../../components/Product/ProductCard";
-import { getProductsAction } from "../../redux/product/productActions";
+import CustomerProductCard from "../../../components/Product/CustomerProductCard";
+import { getProductsAction } from "../../../redux/product/productActions";
 
-const Products = () => {
+const ProductsListPage = () => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
@@ -24,21 +24,14 @@ const Products = () => {
         <Col xs={9}>
           <Form.Control type="text" placeholder="Search by title..." />
         </Col>
-        <Col xs={3}>
-          <Link to="/admin/new-product">
-            <Button variant="success" className="btn-md w-100">
-              Create
-            </Button>
-          </Link>
-        </Col>
       </Row>
       <Stack>
         {products.map((product, index) => (
-          <ProductCard key={index} product={product} />
+          <CustomerProductCard key={index} product={product} />
         ))}
       </Stack>
     </Container>
   );
 };
 
-export default Products;
+export default ProductsListPage;

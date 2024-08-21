@@ -1,4 +1,9 @@
-import { createProduct, getProducts } from "../../axios/productAxios";
+import {
+  createProduct,
+  deleteProduct,
+  getProducts,
+  updateProduct,
+} from "../../axios/productAxios";
 import { setIsLoading, setProducts } from "./productSlice";
 import { toast } from "react-toastify";
 
@@ -49,7 +54,7 @@ export const updateProductAction = (productObj) => async (dispatch) => {
 
 //DELETE PRODUCT ACTION
 export const deleteProductAction = (productObj) => async (dispatch) => {
-  const result = await deleteCategory(productObj);
+  const result = await deleteProduct(productObj);
   if (result.status === "error") {
     return toast.error(result.message);
   }

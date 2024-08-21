@@ -1,5 +1,5 @@
 import { Alert } from "react-bootstrap";
-import ProductForm from "../../components/Product/ProductForm";
+import ProductForm from "../../../components/Product/ProductForm";
 
 const initialFormData = {
   thumbnail: "",
