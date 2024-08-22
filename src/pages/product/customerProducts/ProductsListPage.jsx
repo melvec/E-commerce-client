@@ -14,18 +14,8 @@ const ProductsListPage = () => {
   }, []);
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <span> List of products</span>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={9}>
-          <Form.Control type="text" placeholder="Search by title..." />
-        </Col>
-      </Row>
-      <Stack>
+    <Container style={{ marginTop: "6rem" }}>
+      <Stack direction="horizontal" style={{ gap: "4rem" }}>
         {products.map((product, index) => (
           <CustomerProductCard key={index} product={product} />
         ))}

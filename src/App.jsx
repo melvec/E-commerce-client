@@ -14,6 +14,9 @@ import EditProductPage from "./pages/product/adminProducts/EditProductPage";
 import NewProductPage from "./pages/product/adminProducts/NewProductPage";
 import ProductsPage from "./pages/product/adminProducts/ProductsPage";
 import CustomerProductCardDetails from "./components/Product/CustomerProductCardDetails";
+import CustomerLayout from "./components/CustomerLayout";
+import PublicRoutes from "./components/PublicRoutes";
+import ShoppingCart from "./components/ShoppingCart";
 function App() {
   return (
     <>
@@ -21,10 +24,21 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/signup" element={<SignupForm />} />
+
         <Route
-          path="/product-detail/:id"
-          element={<CustomerProductCardDetails />}
-        />
+          path="/customer"
+          element={
+            <PublicRoutes>
+              <CustomerLayout />
+            </PublicRoutes>
+          }
+        >
+          <Route
+            path="product-detail/:id"
+            element={<CustomerProductCardDetails />}
+          />
+          <Route path="shopping-cart/:id" element={<ShoppingCart />} />
+        </Route>
 
         {/* Private Route */}
         <Route

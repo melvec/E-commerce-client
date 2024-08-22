@@ -4,7 +4,15 @@ import React from "react";
 import "../assets/css/homePage.css";
 
 import CustomButton from "./CustomButton";
-import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
+import {
+  Navbar,
+  Nav,
+  Container,
+  NavDropdown,
+  Button,
+  Form,
+} from "react-bootstrap";
+import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
   return (
@@ -12,8 +20,12 @@ const Header = () => {
       <Container>
         <Navbar.Brand href="#home">Melissa Gallery</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
+            <Nav.Link href="#home" className="me-3" style={{ width: "300px" }}>
+              <Form.Control type="text" placeholder="Search by title..." />
+            </Nav.Link>
             <Nav.Link href="#home" className="mx-3">
               Gallery
             </Nav.Link>
@@ -25,6 +37,9 @@ const Header = () => {
               Contact
             </Nav.Link>
           </Nav>
+          <Button>
+            <FaShoppingCart />
+          </Button>
           <Button
             className="ms-2"
             type="submit"
