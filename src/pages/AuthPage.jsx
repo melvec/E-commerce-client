@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import LoginForm from "../components/LoginForm";
 import SignupForm from "../components/SignupForm";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import beachlandscape from "../assets/beachlandscape.jpg";
+import beachlandscape from "../assets/images/beachlandscape.jpg";
+import beachlandscape1 from "../assets/images/beachlandscape1.jpg";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -20,7 +21,7 @@ const AuthPage = () => {
         <Row className="no-gutters">
           <Col md={6} className="d-flex flex-column justify-content-center p-4">
             <Card.Body>
-              <Card.Subtitle className="mb-4 text-center text-success font-weight-bold">
+              <Card.Subtitle className=" text-center text-success font-weight-bold">
                 E-COMMERCE WEBSITE
               </Card.Subtitle>
               {isLogin ? (
@@ -34,11 +35,20 @@ const AuthPage = () => {
             md={6}
             className="d-none d-md-flex align-items-center justify-content-center"
           >
-            <Card.Img
-              src={beachlandscape}
-              alt="img"
-              className="w-100 h-100 rounded-end object-fit-cover"
-            />
+            {isLogin && (
+              <Card.Img
+                src={beachlandscape}
+                alt="img"
+                className="w-100 h-100 rounded-end object-fit-cover"
+              />
+            )}
+            {!isLogin && (
+              <Card.Img
+                src={beachlandscape1}
+                alt="img"
+                className="w-100 h-100 rounded-end object-fit-cover"
+              />
+            )}
           </Col>
         </Row>
       </Card>

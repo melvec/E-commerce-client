@@ -18,7 +18,7 @@ const Header = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">Melissa Gallery</Navbar.Brand>
+        <Navbar.Brand href="/">Melissa Art Gallery</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
@@ -40,13 +40,16 @@ const Header = () => {
           <Button>
             <FaShoppingCart />
           </Button>
-          <Button
-            className="ms-2"
-            type="submit"
-            style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
-          >
-            Login
-          </Button>
+
+          <Nav.Link href="/auth" className="mx-3">
+            <Button
+              className="ms-2"
+              type="submit"
+              style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
+            >
+              Login
+            </Button>
+          </Nav.Link>
         </Navbar.Collapse>
       </Container>
     </Navbar>

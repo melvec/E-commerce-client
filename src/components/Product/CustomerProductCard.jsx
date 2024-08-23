@@ -3,6 +3,7 @@ import { BsImages, BsPencil, BsTrash } from "react-icons/bs";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import useForm from "../../hooks/useForm";
+import { FaPlus } from "react-icons/fa";
 
 import { format } from "date-fns";
 import CustomButton from "../CustomButton";
@@ -37,13 +38,17 @@ const CustomerProductCard = (props) => {
           />
         </Link>
         <Card.Body className="pt-4">
-          <Link to={`/customer/product-detail/${product._id}`}>
-            <Card.Title className="d-flex justify-content-between">
-              {product.name}
-              <span style={{ textDecoration: "none" }}>
-                <Badge bg="secondary">{product.parentCategory}</Badge>
-              </span>
-            </Card.Title>
+          <Link
+            style={{ textDecoration: "none", color: "grey" }}
+            to={`/customer/product-detail/${product._id}`}
+          >
+            <div className="d-flex justify-content-between">
+              <Card.Title style={{ color: "#a89934" }}>
+                {product.name}
+              </Card.Title>
+
+              {product.parentCategory}
+            </div>
 
             <Card.Text>{product.description}</Card.Text>
           </Link>
@@ -79,7 +84,7 @@ const CustomerProductCard = (props) => {
               color: "green",
             }}
           >
-            <FaCartPlus />
+            <FaPlus />
           </Button>
         </Card.Body>
       </Card>

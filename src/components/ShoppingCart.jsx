@@ -81,7 +81,16 @@ const ShoppingCart = () => {
                   </DropdownButton>
                 </InputGroup>
               </Stack>
-              <Link to={`/admin/edit-product/${product._id}`}>
+              {/* <Link
+                to={`/customer/checkout/${product._id}/${selectedQuantity}`}
+              >
+                <Button variant="outline-success">Checkout</Button>
+              </Link> */}
+              <Link
+                to={{
+                  pathname: `/customer/checkout/${product._id}/${selectedQuantity}`,
+                }}
+              >
                 <Button variant="outline-success">Checkout</Button>
               </Link>
             </Stack>

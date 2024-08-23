@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { toast } from "react-toastify";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Card } from "react-bootstrap";
 import { loginUser } from "../axios/usersAxios";
 import useForm from "../hooks/useForm";
 import CustomInput from "./CusotmInput";
@@ -57,10 +57,10 @@ const LoginForm = ({ toggleAuthMode }) => {
 
   return (
     <Form onSubmit={handleOnSubmit}>
-      <Container className="py-4">
-        <Row>
-          <span>Login</span>
-        </Row>
+      <Card.Text className=" text-center text-success font-weight-bold pt-3">
+        LOGIN
+      </Card.Text>
+      <Container className=" py-4">
         <Row>
           <Col>
             <CustomInput
@@ -110,9 +110,9 @@ const LoginForm = ({ toggleAuthMode }) => {
         </Row>
         <Row className="text-center text-muted py-2">
           <Col>
-            Don’t have an account?
+            <span> Don’t have an account?</span>
             <span
-              className="font-weight-bold text-dark ml-1"
+              className="font-weight-bold text-dark m-2"
               onClick={toggleAuthMode}
               style={{ cursor: "pointer" }}
             >

@@ -44,6 +44,7 @@ const CustomerProductCardDetails = () => {
           <Stack direction="vertical" style={{ width: "70%" }}>
             <Stack> ${product.price}</Stack>
             <Stack>Author: {product.author}</Stack>
+            <Stack>Shop: {product.shop}</Stack>
             <Stack>Description: {product.description}</Stack>
             <Stack>Dimensions: {product.dimensions}</Stack>
             <Stack>Frame: {product.frame}</Stack>

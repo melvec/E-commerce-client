@@ -8,11 +8,19 @@ const Banner = () => {
   return (
     <div>
       <Container className="d-flex ubuntu-regular">
-        <Stack direction="vertical">
-          <Stack className=" justify-content-end flex-grow-1">
-            <span style={{ fontSize: "2rem" }}>Get your dreamed painting</span>
-          </Stack>
-        </Stack>
+        <span
+          style={{
+            fontSize: "30px",
+            position: "absolute",
+            top: "200px", // Adjust this to position the overlay image vertically
+            left: "350px",
+            width: "500px", // Set the size of the overlay image
+            height: "10px",
+            zIndex: 10,
+          }}
+        >
+          Get your dream painting
+        </span>
 
         <Image
           src={bannerBackground}

@@ -17,6 +17,7 @@ import CustomerProductCardDetails from "./components/Product/CustomerProductCard
 import CustomerLayout from "./components/CustomerLayout";
 import PublicRoutes from "./components/PublicRoutes";
 import ShoppingCart from "./components/ShoppingCart";
+import Checkout from "./components/Checkout";
 function App() {
   return (
     <>
@@ -38,6 +39,7 @@ function App() {
             element={<CustomerProductCardDetails />}
           />
           <Route path="shopping-cart/:id" element={<ShoppingCart />} />
+          <Route path="checkout/:id/:selectedQuantity" element={<Checkout />} />
         </Route>
 
         {/* Private Route */}
