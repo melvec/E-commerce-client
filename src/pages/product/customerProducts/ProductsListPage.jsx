@@ -7,6 +7,8 @@ import { getProductsAction } from "../../../redux/product/productActions";
 
 const ProductsListPage = () => {
   const { products } = useSelector((state) => state.product);
+  const activeProducts = products.filter((item) => item.status === "active");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -16,7 +18,7 @@ const ProductsListPage = () => {
   return (
     <Container style={{ marginTop: "6rem" }}>
       <Stack direction="horizontal" style={{ gap: "4rem" }}>
-        {products.map((product, index) => (
+        {activeProducts.map((product, index) => (
           <CustomerProductCard key={index} product={product} />
         ))}
       </Stack>

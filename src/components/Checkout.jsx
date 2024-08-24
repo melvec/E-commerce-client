@@ -8,7 +8,7 @@ import {
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import CartItemsSummary from "./CartItemsSummary";
+import CartItems from "./CartItems";
 import CartPaymentSummary from "./CartPaymentSummary";
 import DeliveryAddressForm from "./DeliveryAddressForm";
 
@@ -23,7 +23,7 @@ const Checkout = () => {
         <span>Review your order</span>
         <Stack direction="horizontal" className=" pt-4 ">
           <Stack>
-            <CartItemsSummary />
+            <CartItems />
           </Stack>
           <Stack>
             <CartPaymentSummary />

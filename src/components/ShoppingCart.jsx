@@ -1,103 +1,29 @@
-import React, { useState } from "react";
-import {
-  Badge,
-  Button,
-  Card,
-  Dropdown,
-  DropdownButton,
-  Form,
-  Image,
-  InputGroup,
-  Stack,
-} from "react-bootstrap";
+import React from "react";
+import { Col, Container, Image, Row, Stack } from "react-bootstrap";
 import { useSelector } from "react-redux";
-import { Link, useParams } from "react-router-dom";
-import { format } from "date-fns";
+import CartItems from "./CartItems";
+import CartPaymentSummary from "./CartPaymentSummary";
 
 const ShoppingCart = () => {
-  const { id } = useParams();
-  const { products } = useSelector((state) => state.product);
-  const product = products?.find((product) => product._id === id);
-  const [selectedQuantity, setSelectedQuantity] = useState(1);
-
-  // Function to handle the selection of a quantity
-  const handleSelect = (quantity) => {
-    setSelectedQuantity(quantity);
-  };
-
   return (
-    <div>
-      <Card className="d-flex flex-row align-items-center rounded">
-        <Image
-          src={product?.thumbnail}
-          width="40%" // Set the width as a percentage
-          height="auto"
-          style={{ boxShadow: "12px 16px 15px rgba(0, 0, 0, 0.2)" }}
-        />
-
-        <Card.Body>
-          <Stack direction="horizontal">
-            <Stack gap={1}>
-              <Card.Title>
-                {product.name}
-                <Badge style={{ marginLeft: "15px" }} bg="secondary">
-                  {product.parentCategory}
-                </Badge>
-              </Card.Title>
-
-              <Stack>Author: {product.author}</Stack>
+    <>
+      <Container>
+        <Row>
+          <Stack direction="horizontal" className="w-100">
+            <Col xs={12} md={8} className="p-0">
               <Stack>
-                Date: {format(new Date(product?.date), "yyyy-MM-dd", "")}
+                <CartItems />
               </Stack>
-
-              <Stack>Description: {product.description}</Stack>
-              <Stack>Dimensions: {product.dimensions}</Stack>
-              <Stack>Frame: {product.frame}</Stack>
-              <Stack>Shop: {product.shop}</Stack>
-            </Stack>
-
-            <Stack>
-              <Stack> ${product.price * selectedQuantity}</Stack>
-              <Stack> In Stock</Stack>
+            </Col>
+            <Col xs={12} md={4} className="p-3 sticky-summary">
               <Stack>
-                <InputGroup className="mb-3">
-                  <DropdownButton
-                    variant="outline-secondary"
-                    title={
-                      selectedQuantity !== null
-                        ? `Quantity: ${selectedQuantity}`
-                        : `Quantity: select`
-                    }
-                    id="input-group-dropdown-1"
-                  >
-                    {Array.from({ length: product?.quantity }, (_, index) => (
-                      <Dropdown.Item
-                        key={index + 1}
-                        onClick={() => handleSelect(index + 1)} // Update state on selection
-                      >
-                        {index + 1}
-                      </Dropdown.Item>
-                    ))}
-                  </DropdownButton>
-                </InputGroup>
+                <CartPaymentSummary />
               </Stack>
-              {/* <Link
-                to={`/customer/checkout/${product._id}/${selectedQuantity}`}
-              >
-                <Button variant="outline-success">Checkout</Button>
-              </Link> */}
-              <Link
-                to={{
-                  pathname: `/customer/checkout/${product._id}/${selectedQuantity}`,
-                }}
-              >
-                <Button variant="outline-success">Checkout</Button>
-              </Link>
-            </Stack>
+            </Col>
           </Stack>
-        </Card.Body>
-      </Card>
-    </div>
+        </Row>
+      </Container>
+    </>
   );
 };
 

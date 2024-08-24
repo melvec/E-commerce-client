@@ -2,3 +2,11 @@
     width: 100%; /* Adjust this value as needed */
   max-width: 900px; /* Optional: Set a maximum width */
 }
+.sticky-summary {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 10; /* Adjust based on your needs */
+  height: 100vh;  
+  /* Optional: Ensures the sticky column takes full viewport height */
+  overflow: auto; /* Optional: Ensures that if the content overflows, it will scroll */
+}

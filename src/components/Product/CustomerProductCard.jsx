@@ -8,12 +8,15 @@ import { FaPlus } from "react-icons/fa";
 import { format } from "date-fns";
 import CustomButton from "../CustomButton";
 import { FaCartPlus } from "react-icons/fa";
+import { addProductToCartAction } from "../../redux/shoppingCart/shoppingCartActions";
 const CustomerProductCard = (props) => {
   const { product } = props;
-  const { formData, handleOnChange } = useForm(product);
   const dispatch = useDispatch();
 
-  const isActive = product?.status === "active";
+  const addProductToShoppingCart = (e) => {
+    e.preventDefault();
+    dispatch(addProductToCartAction(product));
+  };
 
   return (
     <>
@@ -59,7 +62,7 @@ const CustomerProductCard = (props) => {
             </div>
           </Card.Text>
 
-          <Link to={`/customer/shopping-cart/${product._id}`}>
+          {/* <Link to={`/customer/shopping-cart/${product._id}`}>
             <Button
               type="submit"
               style={{
@@ -71,9 +74,10 @@ const CustomerProductCard = (props) => {
             >
               Buy
             </Button>
-          </Link>
+          </Link> */}
           {/* add a state in redux */}
           <Button
+            onClick={addProductToShoppingCart}
             className="m-1"
             type="submit"
             style={{

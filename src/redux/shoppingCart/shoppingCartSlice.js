@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   user: null,
-  products: [],
+  cartProducts: [],
   payment: null,
   deliveryAddress: null,
 };
@@ -14,19 +14,19 @@ const shoppingCartSlice = createSlice({
     setUser: (state, action) => {
       state.user = action.payload;
     },
-    setProducts: (state, action) => {
-      state.products = action.payload;
+    setCartProducts: (state, action) => {
+      state.cartProducts = action.payload;
     },
-    addProduct: (state, action) => {
-      state.products.push(action.payload);
+    addCartProduct: (state, action) => {
+      state.cartProducts.push(action.payload);
     },
     removeProduct: (state, action) => {
-      state.products = state.products.filter(
+      state.cartProducts = state.cartProducts.filter(
         (product) => product.id !== action.payload
       );
     },
     clearCart: (state) => {
-      state.products = [];
+      state.cartProducts = [];
     },
     setPayment: (state, action) => {
       state.payment = action.payload;
@@ -37,14 +37,27 @@ const shoppingCartSlice = createSlice({
   },
 });
 
+// export const {
+// setUser,
+// setCartProducts,
+// addCartProduct,
+// removeProduct,
+// clearCart,
+// setPayment,
+// setDeliveryAddress,
+// } = shoppingCartSlice.actions;
+
+// export default shoppingCartSlice.reducer;
+const { reducer: cartReducer, actions } = shoppingCartSlice;
+
 export const {
   setUser,
-  setProducts,
-  addProduct,
+  setCartProducts,
+  addCartProduct,
   removeProduct,
   clearCart,
   setPayment,
   setDeliveryAddress,
-} = shoppingCartSlice.actions;
+} = actions;
 
-export default shoppingCartSlice.reducer;
+export default cartReducer;

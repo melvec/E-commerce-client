@@ -1,10 +1,11 @@
 import {
   setUser,
-  addProduct,
+  addCartProduct,
   removeProduct,
   clearCart,
   setPayment,
   setDeliveryAddress,
+  setCartProducts,
 } from "./shoppingCartSlice";
 import { toast } from "react-toastify";
 
@@ -20,7 +21,9 @@ export const saveUserAction = (user) => async (dispatch) => {
 
 // Add product to cart
 export const addProductToCartAction = (product) => (dispatch) => {
-  dispatch(addProduct(product));
+  console.log("addProdToCart action");
+  console.log(product);
+  dispatch(addCartProduct(product));
   toast.success("Product added to cart.");
 };
 

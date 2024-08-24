@@ -13,12 +13,15 @@ import {
   Form,
 } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
-        <Navbar.Brand href="/">Melissa Art Gallery</Navbar.Brand>
+        <Navbar.Brand as={Link} to="/">
+          Melissa Art Gallery
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
         <Navbar.Collapse id="basic-navbar-nav">
@@ -26,7 +29,7 @@ const Header = () => {
             <Nav.Link href="#home" className="me-3" style={{ width: "300px" }}>
               <Form.Control type="text" placeholder="Search by title..." />
             </Nav.Link>
-            <Nav.Link href="#home" className="mx-3">
+            <Nav.Link as={Link} to="/" className="mx-3">
               Gallery
             </Nav.Link>
             <Nav.Link href="#home" className="mx-3">
@@ -37,11 +40,14 @@ const Header = () => {
               Contact
             </Nav.Link>
           </Nav>
-          <Button>
-            <FaShoppingCart />
-          </Button>
 
-          <Nav.Link href="/auth" className="mx-3">
+          <Nav.Link as={Link} to="/customer/shopping-cart" className="mx-3">
+            <Button>
+              <FaShoppingCart />
+            </Button>
+          </Nav.Link>
+
+          <Nav.Link as={Link} to="/auth" className="mx-3">
             <Button
               className="ms-2"
               type="submit"
