@@ -7,7 +7,7 @@ import CartPaymentSummary from "./CartPaymentSummary";
 const ShoppingCart = () => {
   return (
     <>
-      <Container>
+      <Container className="pt-5">
         <Row>
           <Stack direction="horizontal" className="w-100">
             <Col xs={12} md={8} className="p-0">
@@ -15,7 +15,7 @@ const ShoppingCart = () => {
                 <CartItems />
               </Stack>
             </Col>
-            <Col xs={12} md={4} className="p-3 sticky-summary">
+            <Col xs={12} md={4} className="p-3 ">
               <Stack>
                 <CartPaymentSummary />
               </Stack>

@@ -14,8 +14,10 @@ import {
 } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Header = () => {
+  const { cartProducts } = useSelector((state) => state.shoppingCart);
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -42,7 +44,23 @@ const Header = () => {
           </Nav>
 
           <Nav.Link as={Link} to="/customer/shopping-cart" className="mx-3">
-            <Button>
+            <Button
+              style={{ width: "3rem", height: "3rem", position: "relative" }}
+            >
+              <div
+                className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
+                style={{
+                  color: "white",
+                  width: "1.5rem",
+                  height: "1.5rem",
+                  position: "absolute",
+                  bottom: 0,
+                  right: 0,
+                  transform: "translate(25%, 25%)",
+                }}
+              >
+                {cartProducts.length}
+              </div>
               <FaShoppingCart />
             </Button>
           </Nav.Link>

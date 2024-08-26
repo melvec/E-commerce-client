@@ -1,12 +1,15 @@
 import React from "react";
 import { Button, Col, Row, Stack } from "react-bootstrap";
+import { useSelector } from "react-redux";
 
 const CartSummary = () => {
+  const { cartProducts } = useSelector((state) => state.shoppingCart);
+
   return (
     <Stack className="d-flex justify-content-around border p-4">
       <Row>
         <Col>
-          <span>Items () </span>
+          <span>Items ({cartProducts.length}) </span>
         </Col>
         <Col>
           <span>AUD $ </span>

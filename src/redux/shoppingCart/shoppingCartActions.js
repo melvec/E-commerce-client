@@ -6,6 +6,7 @@ import {
   setPayment,
   setDeliveryAddress,
   setCartProducts,
+  setCartQuantity,
 } from "./shoppingCartSlice";
 import { toast } from "react-toastify";
 
@@ -37,6 +38,10 @@ export const removeProductFromCartAction = (productId) => (dispatch) => {
 export const clearCartAction = () => (dispatch) => {
   dispatch(clearCart());
   toast.success("Cart cleared.");
+};
+
+export const setCartQuantityAction = (product) => (dispatch) => {
+  dispatch(setCartQuantity(product));
 };
 
 // Save payment method

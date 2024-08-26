@@ -18,7 +18,14 @@ const shoppingCartSlice = createSlice({
       state.cartProducts = action.payload;
     },
     addCartProduct: (state, action) => {
-      state.cartProducts.push(action.payload);
+      const existingProduct = state.cartProducts.find(
+        (product) => product._id === action.payload._id
+      );
+      if (existingProduct) {
+        existingProduct.cartQuantity += 1;
+      } else {
+        state.cartProducts.push({ ...action.payload, cartQuantity: 1 });
+      }
     },
     removeProduct: (state, action) => {
       state.cartProducts = state.cartProducts.filter(
@@ -33,6 +40,23 @@ const shoppingCartSlice = createSlice({
     },
     setDeliveryAddress: (state, action) => {
       state.deliveryAddress = action.payload;
+    },
+
+    setCartQuantity: (state, action) => {
+      const existingProduct = state.cartProducts.find(
+        (product) => product._id === action.payload._id
+      );
+      if (existingProduct) {
+        existingProduct.cartQuantity = action.payload.cartQuantity;
+      }
+    },
+    decreaseCartQuantity: (state, action) => {
+      const product = state.cartProducts.find(
+        (product) => product.id === action.payload
+      );
+      if (product && product.cartQuantity > 1) {
+        product.cartQuantity -= 1;
+      }
     },
   },
 });
@@ -58,6 +82,8 @@ export const {
   clearCart,
   setPayment,
   setDeliveryAddress,
+  setCartQuantity,
+  decreaseCartQuantity,
 } = actions;
 
 export default cartReducer;
