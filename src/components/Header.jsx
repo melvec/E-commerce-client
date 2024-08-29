@@ -18,6 +18,9 @@ import { useSelector } from "react-redux";
 
 const Header = () => {
   const { cartProducts } = useSelector((state) => state.shoppingCart);
+  const { user } = useSelector((state) => state.user);
+  // console.log("user in header");
+  // console.log(user);
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -71,7 +74,7 @@ const Header = () => {
               type="submit"
               style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
             >
-              Login
+              {user?.first_name || "Login"}
             </Button>
           </Nav.Link>
         </Navbar.Collapse>

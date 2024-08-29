@@ -88,7 +88,7 @@ const CustomerProductCard = (props) => {
               color: "green",
             }}
           >
-            <FaPlus />
+            <FaCartPlus />
           </Button>
         </Card.Body>
       </Card>

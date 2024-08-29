@@ -48,6 +48,7 @@ const SignupForm = ({ toggleAuthMode }) => {
 
     setFormData(initialFormData);
     toast.success(result.message || " Account created");
+    toggleAuthMode();
   };
 
   return (

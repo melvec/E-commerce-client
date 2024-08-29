@@ -50,10 +50,10 @@ const Banner = () => {
           src={birds}
           style={{
             position: "absolute",
-            top: "30px", // Adjust this to position the overlay image vertically
+            top: "60px", // Adjust this to position the overlay image vertically
             right: "200px", // Adjust this to position the overlay image horizontally
             width: "500px", // Set the size of the overlay image
-            height: "500px",
+            height: "150px",
             zIndex: 10,
           }}
         ></Image>

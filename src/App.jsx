@@ -18,6 +18,7 @@ import CustomerLayout from "./components/CustomerLayout";
 import PublicRoutes from "./components/PublicRoutes";
 import ShoppingCart from "./components/ShoppingCart";
 import Checkout from "./components/Checkout";
+import LoginForm from "./components/LoginForm";
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/auth" element={<AuthPage />} />
         <Route path="/signup" element={<SignupForm />} />
+        <Route path="/login" element={<LoginForm />} />
 
         <Route
           path="/customer"

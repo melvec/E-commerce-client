@@ -16,12 +16,22 @@ const ProductsListPage = () => {
   }, []);
 
   return (
-    <Container style={{ marginTop: "6rem" }}>
-      <Stack direction="horizontal" style={{ gap: "4rem" }}>
+    // <Container style={{ marginTop: "6rem" }}>
+    //   <Stack direction="horizontal" style={{ gap: "4rem" }}>
+    //     {activeProducts.map((product, index) => (
+    //       <CustomerProductCard key={index} product={product} />
+    //     ))}
+    //   </Stack>
+    // </Container>
+
+    <Container className="mt-5">
+      <Row>
         {activeProducts.map((product, index) => (
-          <CustomerProductCard key={index} product={product} />
+          <Col key={product._id} xs={12} sm={6} md={6} lg={3} className="mb-4">
+            <CustomerProductCard key={index} product={product} />
+          </Col>
         ))}
-      </Stack>
+      </Row>
     </Container>
   );
 };
