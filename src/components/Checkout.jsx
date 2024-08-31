@@ -1,9 +1,12 @@
 import React from "react";
 import {
+  Col,
+  Container,
   Dropdown,
   DropdownButton,
   Image,
   InputGroup,
+  Row,
   Stack,
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -19,20 +22,29 @@ const Checkout = () => {
 
   return (
     <div>
-      <Stack className="pt-3">
-        <span>Review your order</span>
-        <Stack direction="horizontal" className=" pt-4 ">
+      <Container className="pt-5">
+        <Row>
+          <Stack direction="horizontal" className="w-100">
+            <Col xs={12} md={8} className="p-0">
+              <Stack>
+                <DeliveryAddressForm />
+              </Stack>
+            </Col>
+            <Col xs={12} md={4} className="p-3 ">
+              <Stack>
+                <CartPaymentSummary />
+              </Stack>
+            </Col>
+          </Stack>
+        </Row>
+        <Row>
+          <span>Review order</span>
           <Stack>
             <CartItems />
           </Stack>
-          <Stack>
-            <CartPaymentSummary />
-          </Stack>
-        </Stack>
-        <Stack>
-          <DeliveryAddressForm />
-        </Stack>
-      </Stack>
+        </Row>
+      </Container>
+      ;
     </div>
   );
 };

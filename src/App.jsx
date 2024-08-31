@@ -41,7 +41,7 @@ function App() {
             element={<CustomerProductCardDetails />}
           />
           <Route path="shopping-cart" element={<ShoppingCart />} />
-          <Route path="checkout/:id/:selectedQuantity" element={<Checkout />} />
+          <Route path="checkout" element={<Checkout />} />
         </Route>
 
         {/* Private Route */}

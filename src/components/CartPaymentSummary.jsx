@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { Button, Col, Overlay, Row, Stack } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { IoInformationCircleOutline } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 const CURRENCY_FORMATTER = new Intl.NumberFormat(undefined, {
   currency: "AUD",
@@ -36,6 +37,11 @@ const CartSummary = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+  const navigate = useNavigate();
+  const ConfirmAndPay = () => {
+    navigate("/customer/checkout");
+  };
+
   return (
     <Stack className="d-flex justify-content-around border p-4">
       <Row>
@@ -93,6 +99,7 @@ const CartSummary = () => {
       </Row>
       <Row className="pt-4">
         <Button
+          onClick={ConfirmAndPay}
           type="submit"
           className="w-100"
           variant="success"
