@@ -13,7 +13,8 @@ export function formatCurrency(number) {
   return CURRENCY_FORMATTER.format(number);
 }
 
-const CartSummary = () => {
+const CartSummary = (props) => {
+  const { btnLabel } = props;
   const { cartProducts } = useSelector((state) => state.shoppingCart);
   const [show, setShow] = useState(false);
   const target = useRef(null);
@@ -105,7 +106,7 @@ const CartSummary = () => {
           variant="success"
           style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
         >
-          Confirm and pay
+          {btnLabel}
         </Button>
       </Row>
     </Stack>

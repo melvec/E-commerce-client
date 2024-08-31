@@ -17,7 +17,7 @@ const ShoppingCart = () => {
             </Col>
             <Col xs={12} md={4} className="p-3 ">
               <Stack>
-                <CartPaymentSummary />
+                <CartPaymentSummary btnLabel="Checkout" />
               </Stack>
             </Col>
           </Stack>

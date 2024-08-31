@@ -16,14 +16,6 @@ const ProductsListPage = () => {
   }, []);
 
   return (
-    // <Container style={{ marginTop: "6rem" }}>
-    //   <Stack direction="horizontal" style={{ gap: "4rem" }}>
-    //     {activeProducts.map((product, index) => (
-    //       <CustomerProductCard key={index} product={product} />
-    //     ))}
-    //   </Stack>
-    // </Container>
-
     <Container className="mt-5">
       <Row>
         {activeProducts.map((product, index) => (

@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import AddressList from "./AddressList";
 import CartItems from "./CartItems";
 import CartPaymentSummary from "./CartPaymentSummary";
 import DeliveryAddressForm from "./DeliveryAddressForm";
@@ -27,12 +28,13 @@ const Checkout = () => {
           <Stack direction="horizontal" className="w-100">
             <Col xs={12} md={8} className="p-0">
               <Stack>
+                <AddressList />
                 <DeliveryAddressForm />
               </Stack>
             </Col>
             <Col xs={12} md={4} className="p-3 ">
               <Stack>
-                <CartPaymentSummary />
+                <CartPaymentSummary btnLabel="Confirm and Pay" />
               </Stack>
             </Col>
           </Stack>
