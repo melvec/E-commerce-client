@@ -27,7 +27,7 @@ const DeliveryAddressForm = () => {
   const saveAddress = async (e) => {
     e.preventDefault();
 
-    console.log(user._id);
+    console.log(formData);
     const result = await createAddress({ user, ...formData });
     if (result?.status === "error") {
       return toast.error(result.message || "Cannot create address!");
@@ -203,7 +203,9 @@ const DeliveryAddressForm = () => {
               name="primary"
               label="Save as my primary address"
               checked={formData.primary}
-              onChange={handleOnChange}
+              onChange={(e) =>
+                setFormData({ ...formData, primary: e.target.checked })
+              }
             />
 
             {/* Submit Button */}

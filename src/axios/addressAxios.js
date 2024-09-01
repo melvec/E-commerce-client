@@ -13,10 +13,16 @@ export const createAddress = (addressObj) => {
 };
 
 //GET ADDRESSES OF A USER
+// export const getAddresses = (userId) => {
+//   return axiosApiCall({
+//     method: "get",
+//     url: ADDRESS_API_URL,
+//   });
+// };
+
 export const getAddresses = (userId) => {
   return axiosApiCall({
     method: "get",
-    url: ADDRESS_API_URL,
-    data: userId,
+    url: `${ADDRESS_API_URL}/${userId}`, // Pass the userId as a parameter in the URL
   });
 };

@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Button,
   Col,
   Container,
   Dropdown,
   DropdownButton,
   Image,
   InputGroup,
+  Modal,
   Row,
   Stack,
 } from "react-bootstrap";
@@ -17,9 +19,10 @@ import CartPaymentSummary from "./CartPaymentSummary";
 import DeliveryAddressForm from "./DeliveryAddressForm";
 
 const Checkout = () => {
-  const { products } = useSelector((state) => state.product);
-  const { id, selectedQuantity } = useParams();
-  const product = products.find((item) => item._id == id);
+  const [showModal, setShowModal] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   return (
     <div>
@@ -29,7 +32,22 @@ const Checkout = () => {
             <Col xs={12} md={8} className="p-0">
               <Stack>
                 <AddressList />
-                <DeliveryAddressForm />
+                <Button
+                  variant="link"
+                  onClick={handleShow}
+                  style={{ padding: 0 }}
+                  className="text-start"
+                >
+                  Add New Address
+                </Button>
+                <Modal show={showModal} onHide={handleClose}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Add New Address</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <DeliveryAddressForm />
+                  </Modal.Body>
+                </Modal>
               </Stack>
             </Col>
             <Col xs={12} md={4} className="p-3 ">
