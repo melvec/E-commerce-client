@@ -19,6 +19,8 @@ import PublicRoutes from "./components/PublicRoutes";
 import ShoppingCart from "./components/ShoppingCart";
 import Checkout from "./components/Checkout";
 import LoginForm from "./components/LoginForm";
+import PaymentSuccess from "./components/PaymentSuccess";
+import Payment from "./components/Payment";
 function App() {
   return (
     <>
@@ -42,6 +44,8 @@ function App() {
           />
           <Route path="shopping-cart" element={<ShoppingCart />} />
           <Route path="checkout" element={<Checkout />} />
+          <Route path="payment-success" element={<PaymentSuccess />} />
+          <Route path="payment" element={<Payment />} />
         </Route>
 
         {/* Private Route */}

@@ -17,6 +17,7 @@ import AddressList from "./AddressList";
 import CartItems from "./CartItems";
 import CartPaymentSummary from "./CartPaymentSummary";
 import DeliveryAddressForm from "./DeliveryAddressForm";
+import { Elements } from "@stripe/react-stripe-js";
 
 const Checkout = () => {
   const [showModal, setShowModal] = useState(false);
@@ -31,7 +32,7 @@ const Checkout = () => {
           <Stack direction="horizontal" className="w-100">
             <Col xs={12} md={8} className="p-0">
               <Stack>
-                <AddressList />
+                {/* <AddressList /> */}
                 <Button
                   variant="link"
                   onClick={handleShow}

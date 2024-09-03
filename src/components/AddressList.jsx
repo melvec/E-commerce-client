@@ -28,7 +28,7 @@ const AddressList = () => {
     };
 
     fetchAddresses();
-  }, [addresses]);
+  }, []);
 
   return (
     <div>

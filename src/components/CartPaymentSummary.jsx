@@ -40,7 +40,9 @@ const CartSummary = (props) => {
   }, []);
   const navigate = useNavigate();
   const ConfirmAndPay = () => {
-    navigate("/customer/checkout");
+    btnLabel === "Checkout"
+      ? navigate("/customer/checkout")
+      : navigate("/customer/payment");
   };
 
   return (
