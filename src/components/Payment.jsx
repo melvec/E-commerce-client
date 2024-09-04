@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
-import { Card, Form } from "react-bootstrap";
+import { Card, Container, Form } from "react-bootstrap";
 import axios from "axios";
 import PaymentForm from "./PaymentForm";
 import { useSelector } from "react-redux";
@@ -48,12 +48,14 @@ const Payment = () => {
   console.log(stripePromise);
   return (
     <>
-      Stripe Paymemt
-      {stripePromise && clientSecret && (
-        <Elements stripe={stripePromise} options={{ clientSecret }}>
-          <PaymentForm />
-        </Elements>
-      )}
+      <Container className="mt-5 d-flex flex-column">
+        <h2 className="text-center mb-5">Paymemt</h2>
+        {stripePromise && clientSecret && (
+          <Elements stripe={stripePromise} options={{ clientSecret }}>
+            <PaymentForm />
+          </Elements>
+        )}
+      </Container>
     </>
   );
 };

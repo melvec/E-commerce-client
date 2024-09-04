@@ -18,6 +18,7 @@ const CartSummary = (props) => {
   const { cartProducts } = useSelector((state) => state.shoppingCart);
   const [show, setShow] = useState(false);
   const target = useRef(null);
+  const { user } = useSelector((state) => state.user);
 
   const totalPrice = formatCurrency(
     cartProducts.reduce((total, item) => {
@@ -40,9 +41,21 @@ const CartSummary = (props) => {
   }, []);
   const navigate = useNavigate();
   const ConfirmAndPay = () => {
-    btnLabel === "Checkout"
-      ? navigate("/customer/checkout")
-      : navigate("/customer/payment");
+    console.log(user);
+    if (user._id) {
+      btnLabel === "Checkout"
+        ? navigate("/customer/checkout")
+        : navigate("/customer/payment");
+    } else {
+      navigate("/auth", {
+        state: {
+          from:
+            btnLabel === "Checkout"
+              ? "/customer/checkout"
+              : "/customer/payment",
+        },
+      });
+    }
   };
 
   return (

@@ -32,7 +32,7 @@ const Checkout = () => {
           <Stack direction="horizontal" className="w-100">
             <Col xs={12} md={8} className="p-0">
               <Stack>
-                {/* <AddressList /> */}
+                <AddressList />
                 <Button
                   variant="link"
                   onClick={handleShow}

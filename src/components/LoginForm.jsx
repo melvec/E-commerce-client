@@ -16,6 +16,7 @@ const initialFormData = {
 const LoginForm = ({ toggleAuthMode }) => {
   const { formData, handleOnChange } = useForm(initialFormData);
   const { email, password } = formData;
+  const from = location.state?.from || "/";
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleOnSubmit = async (e) => {
@@ -31,6 +32,7 @@ const LoginForm = ({ toggleAuthMode }) => {
 
     // once tokens are stored, dispatch action to get user
     dispatch(getUserAction());
+    navigate(from);
   };
   //Logic to handle what should happen if a user is logged in
   const { user } = useSelector((state) => state.user);

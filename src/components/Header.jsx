@@ -21,6 +21,9 @@ const Header = () => {
   const { user } = useSelector((state) => state.user);
   // console.log("user in header");
   // console.log(user);
+  const total = cartProducts.reduce((total, product) => {
+    return total + product.cartQuantity;
+  }, 0);
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -62,7 +65,7 @@ const Header = () => {
                   transform: "translate(25%, 25%)",
                 }}
               >
-                {cartProducts.length}
+                {total}
               </div>
               <FaShoppingCart />
             </Button>
