@@ -7,7 +7,8 @@ import { createOrder } from "../axios/orderAxios";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-const PaymentForm = () => {
+const PaymentForm = (props) => {
+  const { amount } = props;
   const stripe = useStripe();
   const elements = useElements();
   const { cartProducts } = useSelector((state) => state.shoppingCart);
@@ -17,18 +18,6 @@ const PaymentForm = () => {
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const result = await createOrder({
-      user: user?._id,
-      payment: "1",
-      products: cartProducts,
-    });
-    console.log("result from payment form", result);
-    if (result?.status === "error") {
-      return toast.error(result.message || "Cannot create order!");
-    }
-    return;
-
     if (!stripe || !elements) {
       return;
     }
@@ -36,10 +25,6 @@ const PaymentForm = () => {
     const { error, paymentIntent } = await stripe.confirmPayment({
       elements,
       redirect: "if_required",
-      //   confirmParams: {
-      //     // Make sure to change this to your payment completion page
-      //     return_url: `${window.location.origin}/customer/payment-success`,
-      //   },
     });
 
     if (error) {
@@ -52,7 +37,8 @@ const PaymentForm = () => {
       //Create the order
       const result = await createOrder({
         user: user?._id,
-        payment: paymentIntent.id,
+        payment: amount,
+        status: "pending",
         products: cartProducts,
       });
       if (result?.status === "error") {

@@ -21,6 +21,8 @@ import Checkout from "./components/Checkout";
 import LoginForm from "./components/LoginForm";
 import PaymentSuccess from "./components/PaymentSuccess";
 import Payment from "./components/Payment";
+import OrdersPage from "./pages/orders/OrdersPage";
+
 function App() {
   return (
     <>
@@ -63,6 +65,7 @@ function App() {
           <Route path="products" element={<ProductsPage />} />
           <Route path="new-product" element={<NewProductPage />} />
           <Route path="edit-product/:id" element={<EditProductPage />} />
+          <Route path="orders" element={<OrdersPage />} />
         </Route>
       </Routes>
 

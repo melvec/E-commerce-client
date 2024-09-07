@@ -13,11 +13,11 @@ export const createOrder = (orderObj) => {
   });
 };
 
-// GET ORDERS
-export const getOrder = (_id) => {
+// GET ORDERS PER USER
+export const getOrder = (userId) => {
   return axiosApiCall({
     method: "get",
-    url: `${ORDER_API_URL}/${_id}`,
+    url: `${ORDER_API_URL}/${userId}`,
     isPrivate: true,
   });
 };

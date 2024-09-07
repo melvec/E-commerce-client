@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 const AdminPrivateRoutes = ({ children }) => {
   const { user } = useSelector((state) => state.user);
   console.log("i am in admin layout");
-  console.log(user);
   return children;
   // if user is not logged in
   if (!user?._id) {

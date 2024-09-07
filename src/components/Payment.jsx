@@ -27,8 +27,6 @@ const Payment = () => {
   const total = cartProducts.reduce((total, item) => {
     return total + item.price * item.cartQuantity;
   }, 0);
-  console.log("total", total);
-
   useEffect(() => {
     axios
       .post(`${import.meta.env.VITE_APP_API_BASE_URL}/create-payment-intent`, {
@@ -52,7 +50,7 @@ const Payment = () => {
         <h2 className="text-center mb-5">Paymemt</h2>
         {stripePromise && clientSecret && (
           <Elements stripe={stripePromise} options={{ clientSecret }}>
-            <PaymentForm />
+            <PaymentForm amount={total} />
           </Elements>
         )}
       </Container>
