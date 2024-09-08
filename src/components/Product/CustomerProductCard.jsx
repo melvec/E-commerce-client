@@ -1,10 +1,7 @@
 import { Badge, Button, Card, Image, Stack } from "react-bootstrap";
-import { BsImages, BsPencil, BsTrash } from "react-icons/bs";
+
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import useForm from "../../hooks/useForm";
-import { FaPlus } from "react-icons/fa";
-
 import { format } from "date-fns";
 import CustomButton from "../CustomButton";
 import { FaCartPlus } from "react-icons/fa";
@@ -62,20 +59,6 @@ const CustomerProductCard = (props) => {
             </div>
           </Card.Text>
 
-          {/* <Link to={`/customer/shopping-cart/${product._id}`}>
-            <Button
-              type="submit"
-              style={{
-                backgroundColor: "#28a745",
-                borderColor: "#28a745",
-                borderRadius: "1rem",
-                width: "100px",
-              }}
-            >
-              Buy
-            </Button>
-          </Link> */}
-          {/* add a state in redux */}
           <Button
             onClick={addProductToShoppingCart}
             className="m-1"

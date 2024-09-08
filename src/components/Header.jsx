@@ -11,6 +11,8 @@ import {
   NavDropdown,
   Button,
   Form,
+  Dropdown,
+  ButtonGroup,
 } from "react-bootstrap";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -71,15 +73,48 @@ const Header = () => {
             </Button>
           </Nav.Link>
 
-          <Nav.Link as={Link} to="/auth" className="mx-3">
-            <Button
-              className="ms-2"
-              type="submit"
-              style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
-            >
-              {user?.first_name || "Login"}
-            </Button>
-          </Nav.Link>
+          {user.first_name ? (
+            <Dropdown as={ButtonGroup}>
+              <Dropdown.Toggle
+                id="dropdown-custom-1"
+                className="btn btn-default"
+                style={{ backgroundColor: "#28a745", borderColor: "#28a745" }}
+              >
+                {user?.first_name || "Login"}
+                <span className="caret ms-2"></span>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {user ? (
+                  <>
+                    <Dropdown.Item as={Link} to="/customer/profile">
+                      Profile
+                    </Dropdown.Item>
+                    <Dropdown.Item as={Link} to="/customer/my-orders">
+                      Orders
+                    </Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Item href="#">Logout</Dropdown.Item>
+                  </>
+                ) : (
+                  <Dropdown.Item href="/login">Login</Dropdown.Item>
+                )}
+              </Dropdown.Menu>
+            </Dropdown>
+          ) : (
+            <Nav.Link as={Link} to="/auth" className="mx-3">
+              <Button
+                className="ms-2 btn btn-default"
+                type="submit"
+                style={{
+                  backgroundColor: "#28a745",
+                  borderColor: "#28a745",
+                }}
+              >
+                Login
+              </Button>
+            </Nav.Link>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>

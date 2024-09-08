@@ -4,8 +4,9 @@ import { useStripe, useElements } from "@stripe/react-stripe-js";
 import { Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { createOrder } from "../axios/orderAxios";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
+import { clearCartAction } from "../redux/shoppingCart/shoppingCartActions";
 
 const PaymentForm = (props) => {
   const { amount } = props;
@@ -15,6 +16,7 @@ const PaymentForm = (props) => {
   const { user } = useSelector((state) => state.user);
   const [message, setMessage] = useState(null);
   const [isProcessing, setIsProcessing] = useState(false);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -37,14 +39,15 @@ const PaymentForm = (props) => {
       //Create the order
       const result = await createOrder({
         user: user?._id,
-        payment: amount,
+        payment: amount * 100,
         status: "pending",
         products: cartProducts,
       });
       if (result?.status === "error") {
         return toast.error(result.message || "Cannot create order!");
       }
-
+      //clean the cart
+      dispatch(clearCartAction());
       // Use React Router's navigate for redirection without full reload
       navigate("/customer/payment-success");
     } else {

@@ -22,6 +22,7 @@ import LoginForm from "./components/LoginForm";
 import PaymentSuccess from "./components/PaymentSuccess";
 import Payment from "./components/Payment";
 import OrdersPage from "./pages/orders/OrdersPage";
+import CustomerOrders from "./pages/orders/CustomerOrders";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="payment-success" element={<PaymentSuccess />} />
           <Route path="payment" element={<Payment />} />
+          <Route path="my-orders" element={<CustomerOrders />} />
         </Route>
 
         {/* Private Route */}

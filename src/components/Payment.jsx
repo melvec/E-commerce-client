@@ -39,11 +39,7 @@ const Payment = () => {
         console.log("Error", error);
       });
   }, []);
-  console.log("clientSecret");
-  console.log(clientSecret);
 
-  console.log("stripePromise");
-  console.log(stripePromise);
   return (
     <>
       <Container className="mt-5 d-flex flex-column">

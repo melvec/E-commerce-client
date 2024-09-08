@@ -12,7 +12,7 @@ const PaymentSuccess = () => {
         <p>Your payment was successful, and your order is being processed.</p>
         <Button
           variant="primary"
-          onClick={() => navigate("/customer/shopping-cart")}
+          onClick={() => navigate("/customer/my-orders")}
         >
           View Your Order
         </Button>

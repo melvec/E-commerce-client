@@ -102,6 +102,7 @@
 import React from "react";
 import {
   Badge,
+  Button,
   Card,
   Dropdown,
   DropdownButton,
@@ -116,7 +117,10 @@ import {
   addCartProduct,
   decreaseCartQuantity,
 } from "../redux/shoppingCart/shoppingCartSlice";
-import { setCartQuantityAction } from "../redux/shoppingCart/shoppingCartActions";
+import {
+  removeProductFromCartAction,
+  setCartQuantityAction,
+} from "../redux/shoppingCart/shoppingCartActions";
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -126,6 +130,11 @@ const CartItems = () => {
   const handleSelect = (product, cartQuantity) => {
     dispatch(setCartQuantityAction({ ...product, cartQuantity }));
   };
+  const removeItemFromCart = (product) => {
+    //e.preventDefault();`
+    //remove product from cart in redux
+    dispatch(removeProductFromCartAction(product));
+  };
 
   return (
     <div>
@@ -134,8 +143,8 @@ const CartItems = () => {
         const maxQuantity = product?.quantity || 1;
 
         return (
-          <div key={cartProduct.id}>
-            <Card className="d-flex flex-row align-items-center rounded">
+          <div className="p-2" key={cartProduct.id}>
+            <Card className=" d-flex flex-row align-items-center rounded">
               <Image
                 src={cartProduct?.thumbnail}
                 width="20%" // Set the width as a percentage
@@ -188,6 +197,12 @@ const CartItems = () => {
                       </InputGroup>
                     </Stack>
                   </Stack>
+                  <Button
+                    onClick={() => removeItemFromCart(cartProduct._id)}
+                    variant="outline-danger"
+                  >
+                    Remove
+                  </Button>
                 </Stack>
               </Card.Body>
             </Card>
