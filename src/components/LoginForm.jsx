@@ -38,10 +38,11 @@ const LoginForm = ({ toggleAuthMode }) => {
   const { user } = useSelector((state) => state.user);
 
   useEffect(() => {
-    // if user exists [logged in], navigate to admin homepage
-    if (user?._id) {
-      navigate("/");
-    }
+    // if user exists [logged in], navigate to homepage
+    // console.log(user.role);
+    // if (user?._id && user.role === "customer") {
+    //   navigate("/");
+    // }
 
     // if no tokens, keep them in login page
     if (

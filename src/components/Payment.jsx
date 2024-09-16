@@ -31,7 +31,7 @@ const Payment = () => {
     axios
       .post(`${import.meta.env.VITE_APP_API_BASE_URL}/create-payment-intent`, {
         currency: "AUD",
-        amount: total,
+        amount: total * 100,
         customer: user.first_name + " " + user.last_name,
       })
       .then((res) => setClientSecret(res.data.clientSecret))

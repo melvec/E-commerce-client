@@ -31,11 +31,11 @@ export const getOrders = () => {
 };
 
 // UPDATE AN ORDER
-export const updateOrder = (orderObj) => {
+export const updateOrderStatus = (updatedOrder) => {
   return axiosApiCall({
     method: "patch",
     url: ORDER_API_URL,
-    data: orderObj,
+    data: updatedOrder,
     isPrivate: true,
   });
 };

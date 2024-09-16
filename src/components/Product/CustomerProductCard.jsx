@@ -6,6 +6,8 @@ import { format } from "date-fns";
 import CustomButton from "../CustomButton";
 import { FaCartPlus } from "react-icons/fa";
 import { addProductToCartAction } from "../../redux/shoppingCart/shoppingCartActions";
+import { formatCurrency } from "../../utilities/utilities";
+
 const CustomerProductCard = (props) => {
   const { product } = props;
   const dispatch = useDispatch();
@@ -53,9 +55,8 @@ const CustomerProductCard = (props) => {
             <Card.Text>{product.description}</Card.Text>
           </Link>
           <Card.Text className="d-flex pt-2 ">
-            <div>$</div>
             <div style={{ fontSize: "1.3rem", fontWeight: "bold" }}>
-              {product.price}
+              {formatCurrency(product.price)}
             </div>
           </Card.Text>
 
