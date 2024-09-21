@@ -7,6 +7,7 @@ import useForm from "../../hooks/useForm";
 import { deleteProductAction } from "../../redux/product/productActions";
 import { format } from "date-fns";
 import { addProductToCartAction } from "../../redux/shoppingCart/shoppingCartActions";
+import { formatCurrency } from "../../utilities/utilities";
 
 const CustomerProductCardDetails = () => {
   const { id } = useParams();
@@ -66,8 +67,7 @@ const CustomerProductCardDetails = () => {
           </Stack>
           <Stack direction="vertical" style={{ width: "70%" }}>
             <Stack>
-              {" "}
-              <h2>${product.price} </h2>
+              <h4>{formatCurrency(product.price)} </h4>
             </Stack>
             <Stack>Author: {product.author}</Stack>
             <Stack>Shop: {product.shop}</Stack>

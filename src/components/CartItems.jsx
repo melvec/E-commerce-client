@@ -1,104 +1,3 @@
-// import React from "react";
-// import {
-//   Badge,
-//   Card,
-//   Dropdown,
-//   DropdownButton,
-//   Image,
-//   InputGroup,
-//   Stack,
-// } from "react-bootstrap";
-// import { useSelector } from "react-redux";
-// import { format } from "date-fns";
-
-// const CartItems = () => {
-//   const { products } = useSelector((state) => state.product);
-//   const { cartProducts } = useSelector((state) => state.shoppingCart);
-
-//   const handleSelect = (productId, newQuantity) => {
-//     const currentProduct = cartProducts.find((product) => product.id === productId);
-//     if (currentProduct.quantity < newQuantity) {
-//       dispatch(increaseQuantity(productId));
-//     } else if (currentProduct.quantity > newQuantity) {
-//       dispatch(decreaseQuantity(productId));
-//     }
-//   };
-
-//   return (
-//     <div>
-//       {cartProducts.map((product) => {
-//         return (
-//           <>
-//             <div>
-//               <Card className="d-flex flex-row align-items-center rounded">
-//                 <Image
-//                   src={product?.thumbnail}
-//                   width="20%" // Set the width as a percentage
-//                   height="auto"
-//                   style={{ boxShadow: "12px 16px 15px rgba(0, 0, 0, 0.2)" }}
-//                 />
-
-//                 <Card.Body>
-//                   <Stack direction="horizontal">
-//                     <Stack gap={1}>
-//                       <Card.Title>
-//                         {product.name}
-//                         <Badge style={{ marginLeft: "15px" }} bg="secondary">
-//                           {product.parentCategory}
-//                         </Badge>
-//                       </Card.Title>
-
-//                       <Stack>Author: {product.author}</Stack>
-//                       <Stack>
-//                         Date:{" "}
-//                         {format(new Date(product?.date), "yyyy-MM-dd", "")}
-//                       </Stack>
-
-//                       <Stack>Description: {product.description}</Stack>
-//                       <Stack>Dimensions: {product.dimensions}</Stack>
-//                       <Stack>Frame: {product.frame}</Stack>
-//                       <Stack>Shop: {product.shop}</Stack>
-//                     </Stack>
-
-//                     <Stack>
-//                       <Stack> ${product.price * product.quantity}</Stack>
-//                       <Stack> Quantity: {product.quantity}</Stack>
-//                       <Stack>
-//                         <InputGroup className="mb-3">
-//                           <DropdownButton
-//                             variant="outline-secondary"
-//                             title={`Quantity: ${product.quantity}`}
-//                             id="input-group-dropdown-1"
-//                           >
-//                             {Array.from(
-//                               { length: product.quantity },
-//                               (_, index) => (
-//                                 <Dropdown.Item
-//                                   key={index + 1}
-//                                   onClick={() => handleSelect(index + 1)} // Update state on selection
-//                                 >
-//                                   {index + 1}
-//                                 </Dropdown.Item>
-//                               )
-//                             )}
-//                           </DropdownButton>
-//                         </InputGroup>
-//                       </Stack>
-
-//                     </Stack>
-//                   </Stack>
-//                 </Card.Body>
-//               </Card>
-//             </div>
-//           </>
-//         );
-//       })}
-//     </div>
-//   );
-// };
-
-// export default CartItems;
-
 import React from "react";
 import {
   Badge,
@@ -121,6 +20,7 @@ import {
   removeProductFromCartAction,
   setCartQuantityAction,
 } from "../redux/shoppingCart/shoppingCartActions";
+import { formatCurrency } from "../utilities/utilities";
 
 const CartItems = () => {
   const dispatch = useDispatch();
@@ -174,7 +74,9 @@ const CartItems = () => {
 
                   <Stack>
                     <Stack>
-                      $ {cartProduct.price * cartProduct.cartQuantity}
+                      {formatCurrency(
+                        cartProduct.price * cartProduct.cartQuantity
+                      )}
                     </Stack>
                     <Stack>
                       <InputGroup className="mb-3">

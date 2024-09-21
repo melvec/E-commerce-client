@@ -8,7 +8,7 @@ import { deleteCategoryAction } from "../../redux/category/categoryActions";
 
 const CategoryCard = (props) => {
   const { category } = props;
-  const { formData, handleOnChange } = useForm(category);
+  const { formData } = useForm(category);
 
   const dispatch = useDispatch();
 
