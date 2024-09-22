@@ -30,7 +30,7 @@ const Header = () => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand as={Link} to="/">
-          Melissa Art Gallery
+          Art Gallery Shop
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
