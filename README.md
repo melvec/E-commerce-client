@@ -5,11 +5,9 @@
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
+- [Screenshots](#screenshots)
 - [Installation](#installation)
 - [Usage](#usage)
-- [API Endpoints](#api-endpoints)
-- [Screenshots](#screenshots)
-- [Contact](#contact)
 
 ## Project Overview
 
@@ -62,9 +60,10 @@ This is the final project for a Full Stack Software Development Bootcamp. It is 
    ```
 
 2. **Create .env file the following variables:**
-   VITE_APP_API_BASE_URL =
-   VITE_APP_STRIPE_PUBLICABLEKEY=
-   VITE_APP_STRIPE_SECRETKEY=
+
+   - VITE_APP_API_BASE_URL =
+   - VITE_APP_STRIPE_PUBLICABLEKEY=
+   - VITE_APP_STRIPE_SECRETKEY=
 
 3. **Run the project**
    ```bash
