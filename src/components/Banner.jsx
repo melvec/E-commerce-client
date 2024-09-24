@@ -6,8 +6,8 @@ import birds from "../assets/images/birds.png";
 
 const Banner = () => {
   return (
-    <div>
-      <Container className="d-flex ubuntu-regular">
+    <div className="d-none d-md-block">
+      <Container className="d-flex ubuntu-regular ">
         <span
           style={{
             fontSize: "30px",
