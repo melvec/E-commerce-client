@@ -17,6 +17,7 @@ import {
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Search from "./Search";
 
 const Header = () => {
   const { cartProducts } = useSelector((state) => state.shoppingCart);
@@ -37,7 +38,7 @@ const Header = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
             <Nav.Link href="#home" className="me-3" style={{ width: "300px" }}>
-              <Form.Control type="text" placeholder="Search by title..." />
+              <Search />
             </Nav.Link>
             <Nav.Link as={Link} to="/" className="mx-3">
               Gallery
