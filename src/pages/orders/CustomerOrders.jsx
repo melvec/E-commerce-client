@@ -2,10 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Stack, Card } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getOrder } from "../../axios/orderAxios"; // Assumed this is your API call function
+import ProductOrderDetails from "../../components/Product/ProductOrderDetails";
 
 const CustomerOrders = () => {
   const [orders, setOrders] = useState([]); // Initialize as an empty array
   const { user } = useSelector((state) => state.user);
+  const { products } = useSelector((state) => state.product);
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -33,19 +35,18 @@ const CustomerOrders = () => {
               Order ID: {order._id} - Status: {order.status}
             </Card.Header>
             <Card.Body>
-              <Card.Title>User ID: {order.user}</Card.Title>
               <Card.Text>Payment: ${order.payment / 100}</Card.Text>{" "}
               {/* Payment in cents */}
               <Card.Text>
                 Products:
-                <ul>
-                  {order.products.map((product) => (
-                    <li key={product._id}>
-                      Product ID: {product._id} - Quantity:{" "}
-                      {product.cartQuantity}
-                    </li>
-                  ))}
-                </ul>
+                {/* <ul> */}
+                {order.products.map((product) => (
+                  <li key={product._id}>
+                    Product ID: {product._id} - Quantity: {product.cartQuantity}
+                  </li>
+                  // <ProductOrderDetails key={product._id} _id={product._id} />
+                ))}
+                {/* </ul> */}
               </Card.Text>
             </Card.Body>
           </Card>
