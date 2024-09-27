@@ -11,10 +11,11 @@ import { addProductToCartAction } from "../../redux/shoppingCart/shoppingCartAct
 import { formatCurrency } from "../../utilities/utilities";
 
 const ProductOrderDetails = (_id) => {
-  console.log(_id);
+  const id = _id._id;
+  console.log(id);
   const { products } = useSelector((state) => state.product);
-  const product = products?.find((product) => "");
-
+  const product = products?.find((product) => product._id === id);
+  console.log(product);
   return (
     <Card className="d-flex flex-row align-items-center rounded">
       <Image
@@ -23,8 +24,8 @@ const ProductOrderDetails = (_id) => {
           boxShadow: "12px 16px 15px rgba(0, 0, 0, 0.2)",
         }}
         src={product?.thumbnail}
-        width={400}
-        height={400}
+        width={150}
+        height={150}
         className="p-1"
         rounded
       />
@@ -43,10 +44,6 @@ const ProductOrderDetails = (_id) => {
             <Badge bg="secondary" style={{ width: "fit-content" }}>
               Category: {product.parentCategory}
             </Badge>
-
-            <Card.Text className="fw-bold pt-2" style={{ color: "red" }}>
-              Only {product.quantity} left
-            </Card.Text>
           </Stack>
           <Stack direction="vertical" style={{ width: "70%" }}>
             <Stack>
@@ -57,26 +54,7 @@ const ProductOrderDetails = (_id) => {
             <Stack>Description: {product.description}</Stack>
             <Stack>Dimensions: {product.dimensions}</Stack>
             <Stack>Frame: {product.frame}</Stack>
-            <Stack className="p-2">
-              <Button onClick={buyProduct} variant="outline-success">
-                Buy
-              </Button>
-            </Stack>
-
-            <Stack className="p-2">
-              <Button
-                onClick={addProductToShoppingCart}
-                variant="outline-success"
-              >
-                Add to Cart
-              </Button>
-            </Stack>
           </Stack>
-
-          {/*
-          <Link to={`/admin/manage-product-images/${product._id}`}>
-            <Button variant="outline-primary"><BsImages/></Button>
-          </Link> */}
         </Stack>
       </Card.Body>
     </Card>

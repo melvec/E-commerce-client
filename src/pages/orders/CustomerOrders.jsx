@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Stack, Card } from "react-bootstrap";
+import { Stack, Card, Container } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { getOrder } from "../../axios/orderAxios"; // Assumed this is your API call function
 import ProductOrderDetails from "../../components/Product/ProductOrderDetails";
@@ -27,7 +27,7 @@ const CustomerOrders = () => {
   }, []);
 
   return (
-    <Stack>
+    <Container>
       {orders && orders.length > 0 ? (
         orders.map((order) => (
           <Card key={order._id} className="mb-3">
@@ -41,10 +41,10 @@ const CustomerOrders = () => {
                 Products:
                 {/* <ul> */}
                 {order.products.map((product) => (
-                  <li key={product._id}>
-                    Product ID: {product._id} - Quantity: {product.cartQuantity}
-                  </li>
-                  // <ProductOrderDetails key={product._id} _id={product._id} />
+                  // <li key={product._id}>
+                  //   Product ID: {product._id} - Quantity: {product.cartQuantity}
+                  // </li>
+                  <ProductOrderDetails key={product._id} _id={product._id} />
                 ))}
                 {/* </ul> */}
               </Card.Text>
@@ -54,7 +54,7 @@ const CustomerOrders = () => {
       ) : (
         <p>No orders found.</p>
       )}
-    </Stack>
+    </Container>
   );
 };
 
