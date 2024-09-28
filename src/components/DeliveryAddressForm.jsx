@@ -23,16 +23,13 @@ const initialFormData = {
 const DeliveryAddressForm = () => {
   const { user } = useSelector((state) => state.user);
   const { formData, handleOnChange, setFormData } = useForm(initialFormData);
-  //const { country } = formData;
   const saveAddress = async (e) => {
     e.preventDefault();
 
-    console.log(formData);
     const result = await createAddress({ user, ...formData });
     if (result?.status === "error") {
       return toast.error(result.message || "Cannot create address!");
     }
-
     setFormData(initialFormData);
     toast.success(result.message || " Account created");
   };
@@ -44,7 +41,6 @@ const DeliveryAddressForm = () => {
       <Row>
         <Col xs={12} lg={10}>
           <Form onSubmit={saveAddress}>
-            {/* Country */}
             <Row>
               <Col sm={12} md={7} lg={6}>
                 <Form.Group className="mb-2" controlId="formCountry">
@@ -63,8 +59,6 @@ const DeliveryAddressForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            {/* First Name and Last Name */}
             <Row className="mb-2">
               <Col sm={6}>
                 <Form.Group controlId="formFirstName">
@@ -91,8 +85,6 @@ const DeliveryAddressForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            {/* Phone Number */}
             <Form.Group className="mb-2" controlId="formPhone">
               <Form.Control
                 type="text"
@@ -103,8 +95,6 @@ const DeliveryAddressForm = () => {
                 required
               />
             </Form.Group>
-
-            {/* Address Line 1 and Address Line 2 */}
             <Row className="mb-2">
               <Col sm={6}>
                 <Form.Group controlId="formAddress1">
@@ -130,8 +120,6 @@ const DeliveryAddressForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            {/* City and Suburb */}
             <Row>
               <Col>
                 <Form.Group className="mb-2" controlId="formCity">
@@ -157,8 +145,6 @@ const DeliveryAddressForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            {/* State/Province/Region and Zip/Postal Code */}
             <Row>
               <Col>
                 <Form.Group className="mb-2" controlId="formState">
@@ -184,8 +170,6 @@ const DeliveryAddressForm = () => {
                 </Form.Group>
               </Col>
             </Row>
-
-            {/* Instructions */}
             <Form.Group className="mb-2" controlId="instructions">
               <Form.Control
                 type="text"
@@ -195,8 +179,6 @@ const DeliveryAddressForm = () => {
                 onChange={handleOnChange}
               />
             </Form.Group>
-
-            {/* Primary Address Checkbox */}
             <Form.Check
               type="checkbox"
               id="primaryAddress"
@@ -207,8 +189,6 @@ const DeliveryAddressForm = () => {
                 setFormData({ ...formData, primary: e.target.checked })
               }
             />
-
-            {/* Submit Button */}
             <Form.Group className="mt-3">
               <Button variant="success" type="submit" style={{ width: "100%" }}>
                 Save Address

@@ -21,7 +21,6 @@ const AdminLayout = () => {
   return (
     <Container fluid>
       <Row>
-        {/* Sidebar */}
         <Col xs={3} className="vh-100  shadow p-2 position-fixed top-0 left-0">
           <Stack className="h-100">
             <Card className="text-center fw-bold">
@@ -32,7 +31,6 @@ const AdminLayout = () => {
               <Card.Body></Card.Body>
             </Card>
 
-            {/* Menu Items */}
             <Stack className="my-4">
               <SidebarItem
                 icon={<BsBoxSeam />}
@@ -82,8 +80,6 @@ const AdminLayout = () => {
             </div>
           </Stack>
         </Col>
-
-        {/* Main Content */}
         <Col style={{ marginLeft: "25%" }}>
           <div className="vh-100 vw-90 pt-4">
             <Outlet />
