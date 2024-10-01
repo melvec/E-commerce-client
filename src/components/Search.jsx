@@ -17,12 +17,15 @@ const Search = () => {
     const query = e.target.value.toLowerCase();
     setSearchQuery(query);
 
+    if (query === "") {
+      dispatch(setProducts(products));
+    }
     // Filter products based on the search query
     const filtered = products.filter((product) =>
-      product.title.toLowerCase().includes(query)
+      product.name.toLowerCase().includes(query)
     );
     setFilteredProducts(filtered);
-    dispatch(setProducts(filteredProducts));
+    dispatch(setProducts(filtered));
   };
   return (
     <div>
@@ -32,13 +35,6 @@ const Search = () => {
         value={searchQuery}
         onChange={handleSearch}
       />
-
-      {/* Display filtered products */}
-      <ul>
-        {filteredProducts.map((product) => (
-          <li key={product.id}>{product.title}</li>
-        ))}
-      </ul>
     </div>
   );
 };
