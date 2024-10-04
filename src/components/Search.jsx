@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { setProducts } from "../redux/product/productSlice";
+import { getProductsAction } from "../redux/product/productActions";
 
 const Search = () => {
   // Get products from the Redux store
@@ -18,7 +19,7 @@ const Search = () => {
     setSearchQuery(query);
 
     if (query === "") {
-      dispatch(setProducts(products));
+      dispatch(getProductsAction());
     }
     // Filter products based on the search query
     const filtered = products.filter((product) =>
