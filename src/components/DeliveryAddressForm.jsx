@@ -25,7 +25,9 @@ const DeliveryAddressForm = () => {
   const { formData, handleOnChange, setFormData } = useForm(initialFormData);
   const saveAddress = async (e) => {
     e.preventDefault();
-
+    //check if usr wants the new address as primary 
+    //verify if theres another primary address, if yes, then update it to primary false.
+    
     const result = await createAddress({ user, ...formData });
     if (result?.status === "error") {
       return toast.error(result.message || "Cannot create address!");
