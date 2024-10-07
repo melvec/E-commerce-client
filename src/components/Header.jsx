@@ -47,7 +47,7 @@ const Header = () => {
               Categories
             </Nav.Link>
 
-            <Nav.Link href="#link" className="mx-3">
+            <Nav.Link as={Link} to="/customer/contact" className="mx-3">
               Contact
             </Nav.Link>
           </Nav>
