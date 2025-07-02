@@ -1,26 +1,36 @@
-import React, { useEffect } from "react";
-import { Button, Col, Container, Form, Row, Stack } from "react-bootstrap";
+import React, { useEffect, useMemo } from "react";
+import { Col, Container, Row } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import CustomerProductCard from "../../../components/Product/CustomerProductCard";
 import { getProductsAction } from "../../../redux/product/productActions";
 
 const ProductsListPage = () => {
-  const { products } = useSelector((state) => state.product);
-  const activeProducts = products.filter((item) => item.status === "active");
-
+  const { products, loading, error } = useSelector((state) => state.product);
   const dispatch = useDispatch();
+
+  const activeProducts = useMemo(
+    () => products.filter((item) => item.status === "active"),
+    [products]
+  );
 
   useEffect(() => {
     dispatch(getProductsAction());
-  }, []);
+  }, [dispatch]);
+
+  if (loading) return <Container className="mt-5">Loading...</Container>;
+  if (error) return <Container className="mt-5">Error: {error}</Container>;
+  if (activeProducts.length === 0) {
+    return (
+      <Container className="mt-5">No active products available.</Container>
+    );
+  }
 
   return (
     <Container className="mt-5">
       <Row>
-        {activeProducts.map((product, index) => (
+        {activeProducts.map((product) => (
           <Col key={product._id} xs={12} sm={6} md={6} lg={3} className="mb-4">
-            <CustomerProductCard key={index} product={product} />
+            <CustomerProductCard product={product} />
           </Col>
         ))}
       </Row>
