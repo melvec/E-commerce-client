@@ -9,7 +9,7 @@ const ProductsListPage = () => {
   const dispatch = useDispatch();
 
   const activeProducts = useMemo(
-    () => products.filter((item) => item.status === "active"),
+    () => (products || []).filter((item) => item.status === "active"),
     [products]
   );
 
